@@ -1,0 +1,11 @@
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,11
+Prop18=31,#ffffff
+Prop16=19,3
+Prop17=31,/windows-tile.png
+[InternetShortcut]
+IDList=
+URL=https://github.com/OpenEmu/UME-Core/blob/master/mame/src/mame/video/m92.cpp
+IconFile=https://assets-cdn.github.com/favicon.ico
+IconIndex=1
+HotKey=0
