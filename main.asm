@@ -8,49 +8,290 @@ section ivt start=0 ;you will need this later
 IVT_START	equ (section.ivt.start >> 4)
 
 idt:
-   dw diverr_handler, INTERUPT_HANDLER_START
-   dw brk_handler, INTERUPT_HANDLER_START
-   dw nmi_handler, INTERUPT_HANDLER_START
-   dw int3_handler, INTERUPT_HANDLER_START
-   dw into_handler, INTERUPT_HANDLER_START
-   dw bound_handler, INTERUPT_HANDLER_START
-   dw undefinst_handler, INTERUPT_HANDLER_START
-   dw nocoprocessor_handler, INTERUPT_HANDLER_START
-   dw vbl_handler, INTERUPT_HANDLER_START
-   dw sprbuf_handler, INTERUPT_HANDLER_START
-   dw raster_handler, INTERUPT_HANDLER_START
-   dw sound_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw coprocessorerror_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw def_handler, INTERUPT_HANDLER_START
-   dw vbl_handler, INTERUPT_HANDLER_START
-   dw sprbuf_handler, INTERUPT_HANDLER_START
-   dw raster_handler, INTERUPT_HANDLER_START
-   dw sound_handler, INTERUPT_HANDLER_START
-
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  
+  ;dw diverr_handler, INTERUPT_HANDLER_START
+  ;dw brk_handler, INTERUPT_HANDLER_START
+  ;dw nmi_handler, INTERUPT_HANDLER_START
+  ;dw int3_handler, INTERUPT_HANDLER_START
+  ;dw into_handler, INTERUPT_HANDLER_START
+  ;dw bound_handler, INTERUPT_HANDLER_START
+  ;dw undefinst_handler, INTERUPT_HANDLER_START
+  ;dw nocoprocessor_handler, INTERUPT_HANDLER_START
+  ;dw vbl_handler, INTERUPT_HANDLER_START
+  ;dw sprbuf_handler, INTERUPT_HANDLER_START
+  ;dw raster_handler, INTERUPT_HANDLER_START
+  ;dw sound_handler, INTERUPT_HANDLER_START
+  
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  
+  dw def_handler, INTERUPT_HANDLER_START
+  ;dw coprocessorerror_handler, INTERUPT_HANDLER_START
+  
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw vbl_handler, INTERUPT_HANDLER_START
+  
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  ;dw sprbuf_handler, INTERUPT_HANDLER_START
+  ;dw raster_handler, INTERUPT_HANDLER_START
+  ;dw sound_handler, INTERUPT_HANDLER_START
+  
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
+  dw def_handler, INTERUPT_HANDLER_START
 ;======================================================================
 ;Section Interupt Handler
 ;======================================================================
 
 section interupt_handler vstart=0 align=16
-INTERUPT_HANDLER_START	equ (section.code.start >> 4)
+INTERUPT_HANDLER_START	equ (section.interupt_handler.start >> 4)
 
 diverr_handler:
   iret
@@ -112,7 +353,7 @@ start:
   mov ds, ax
   mov word [spriteRam], 0xFFFF
   mov word [spriteControlRam + 0], 0xFFFF
-  mov byte [spriteControlRam + 4], 0x04		;modifies "sprite list"
+  mov byte [spriteControlRam + 4], 0x04		;should stay 0x04
   ;mov byte [spriteControlRam + 8], 0xFF	;clears sprite ram
 
 ;Set Up BGs
@@ -138,9 +379,9 @@ start:
   mov ds, dx
   mov word [palettesRequested], 2
   mov word [paletteRequestTable + PALETTE_SOURCE], PALETTE1
-  mov word [paletteRequestTable + PALETTE_DESTINATION], 0x0040
+  mov word [paletteRequestTable + PALETTE_DESTINATION], 0x0000
   mov word [paletteRequestTable + PALETTE_SOURCE + 4], PALETTE1
-  mov word [paletteRequestTable + PALETTE_DESTINATION + 4], 0x0000
+  mov word [paletteRequestTable + PALETTE_DESTINATION + 4], 0x0040
   call upload_palette
   sti				;Enable Interupts
   
@@ -181,10 +422,6 @@ infinite_loop:
   ; mov ax, [bg1YPosition]
   ; out BG1Y, ax
 
-done:
-  hlt
-  jmp infinite_loop
-
 ;======================================================================
 ;Modifies: ax, bx, cx, dx, si, di, ds, es
 
@@ -196,20 +433,20 @@ upload_palette:
   jz upload_palette_done
   
   mov word [palettesRequested], 0
-  mov dx, VIDEO_HARDWARE_RAM_START + (paletteRam >> 4)
-  mov es, dx
+  mov cx, VIDEO_HARDWARE_RAM_START + (paletteRam >> 4)
+  mov es, cx
   mov bx, paletteRequestTable
   jmp upload_palette_first_loop
   
   
   
 upload_palette_loop:
-  mov ds, dx
-  add bx, byte PALETTE_REQUEST_SLOT_SIZE
+  mov ds, dx		;dx is WORKRAM_START
+  add bx, word PALETTE_REQUEST_SLOT_SIZE
   
 upload_palette_first_loop:
-  mov ds, [bx + PALETTE_SOURCE]
   mov di, [bx + PALETTE_DESTINATION]
+  mov ds, [bx + PALETTE_SOURCE]			;WARNING: must come after loading PALETTE_DESTINATION
   
   xor cx, cx
   mov si, cx
