@@ -1,3 +1,4 @@
+:start
 @echo off
 yasm main.asm -l main.lst
 if ERRORLEVEL 1 goto end
@@ -31,9 +32,11 @@ del a2_da.1l
 del a2-h0-a.6h
 del a2-l0-a.8h
 
-xcopy gunforc2.zip "" /y			//The pathway for your MAME roms directory goes in the quotation marks
-cd ""								//The pathway for MAME directory goes in the quotation marks
+xcopy gunforc2.zip "C:\Users\Drew Sebastino\Desktop\MAME\roms" /y
+cd "C:\Users\Drew Sebastino\Desktop\MAME"
 mame64 -debug -nofilter gunforc2
-cd ""								//The pathway from which this was called goes in the quotation marks (optional)
+cd "C:\Users\Drew Sebastino\Desktop\Irem M92 Dev"
 
 :end
+pause
+goto start

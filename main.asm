@@ -7,41 +7,24 @@ cpu 80186
 section ivt start=0
 IVT_START	equ (section.ivt.start >> 4)
 
-ivt:
+ivt: 
+  dw diverr_handler, CODE_START
+  dw brk_handler, CODE_START
+  dw nmi_handler, CODE_START
+  dw int3_handler, CODE_START
+  dw into_handler, CODE_START
+  dw bound_handler, CODE_START
+  dw undefinst_handler, CODE_START
+  dw nocoprocessor_handler, CODE_START
+  dw vbl_handler, CODE_START
+  dw sprbuf_handler, CODE_START
+  dw raster_handler, CODE_START
+  dw sound_handler, CODE_START
   dw def_handler, CODE_START
   dw def_handler, CODE_START
   dw def_handler, CODE_START
   dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  
-  ;dw diverr_handler, CODE_START
-  ;dw brk_handler, CODE_START
-  ;dw nmi_handler, CODE_START
-  ;dw int3_handler, CODE_START
-  ;dw into_handler, CODE_START
-  ;dw bound_handler, CODE_START
-  ;dw undefinst_handler, CODE_START
-  ;dw nocoprocessor_handler, CODE_START
-  ;dw vbl_handler, CODE_START
-  ;dw sprbuf_handler, CODE_START
-  ;dw raster_handler, CODE_START
-  ;dw sound_handler, CODE_START
-  
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  
-  dw def_handler, CODE_START
-  ;dw coprocessorerror_handler, CODE_START
-  
+  dw coprocessorerror_handler, CODE_START
   dw def_handler, CODE_START
   dw def_handler, CODE_START
   dw def_handler, CODE_START
@@ -58,17 +41,10 @@ ivt:
   dw def_handler, CODE_START
   dw def_handler, CODE_START
   dw def_handler, CODE_START
-  
-  ;dw vbl_handler, CODE_START
-  
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  ;dw sprbuf_handler, CODE_START
-  ;dw raster_handler, CODE_START
-  ;dw sound_handler, CODE_START
-  
-  dw def_handler, CODE_START
+  dw vbl_handler, CODE_START
+  dw sprbuf_handler, CODE_START
+  dw raster_handler, CODE_START
+  dw sound_handler, CODE_START
   dw def_handler, CODE_START
   dw def_handler, CODE_START
   dw def_handler, CODE_START
@@ -297,7 +273,7 @@ section code vstart=0 align=16
 CODE_START	equ (section.code.start >> 4)
 
 def_handler:
-  jmp def_handler
+  iret
 
 diverr_handler:
   iret
@@ -345,6 +321,16 @@ start:
   mov sp, BSS_START
   mov ss, sp
   xor sp, sp
+  
+;Set Up Interrupt Controller (This is exactly what Gunforce II writes)
+  mov al, 0x17
+  out 0x40, al
+  mov al, 0x20
+  out 0x42, al
+  mov al, 0x0F
+  out 0x42, al
+  mov al, 0x08
+  out 0x42, al
 
 ;Enable Sprites
   mov ax, VIDEO_HARDWARE_RAM_START
@@ -387,7 +373,25 @@ start:
   call upload_palette
   sti				;Enable Interupts
   
+;Horrible demo for demonstrating that interrupts now work (scrolls BG1)
 infinite_loop:
+  mov dx, WORKRAM_START
+  mov ds, dx
+  
+  mov ax, [bg1XPosition]
+  out BG1X, ax
+  mov ax, [bg1XPosition]
+  out BG1X, ax
+  mov ax, [bg1YPosition]
+  out BG1Y, ax
+  mov ax, [bg1YPosition]
+  out BG1Y, ax
+  
+  inc word [bg1XPosition]
+  inc word [bg1YPosition]
+  inc word [bg1YPosition]
+  
+  hlt
   jmp infinite_loop
 
   ;mov dx, WORKRAM_START
