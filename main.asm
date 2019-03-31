@@ -470,9 +470,7 @@ upload_palette_done:
 
 section palette1 vstart=0 align=16
 PALETTE1	equ (section.palette1.start >> 4)
-
-  dw 0xFFFF,0x0001,0x0002,0x0003,0x0004,0x0005,0x0006,0x0007
-  dw 0x0008,0x0009,0x000A,0x000B,0x000C,0x000D,0x000E,0x000F
+incbin "palettes\palette1.bin"
 
 ;======================================================================
 ;Section Reset
