@@ -1,6 +1,6 @@
 :start
 @echo off
-yasm main.asm -l main.lst
+yasm main.asm -wno-macro-params
 if ERRORLEVEL 1 goto end
 
 romwak /b main a2-l0-a.8h a2-h0-a.6h

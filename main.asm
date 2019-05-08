@@ -1,350 +1,27 @@
-;======================================================================
-;Section IVT
-;======================================================================
-
 cpu 80186
 
-section ivt start=0
-IVT_START	equ (section.ivt.start >> 4)
-
-ivt: 
-  dw diverr_handler, CODE_START
-  dw brk_handler, CODE_START
-  dw nmi_handler, CODE_START
-  dw int3_handler, CODE_START
-  dw into_handler, CODE_START
-  dw bound_handler, CODE_START
-  dw undefinst_handler, CODE_START
-  dw nocoprocessor_handler, CODE_START
-  dw vbl_handler, CODE_START
-  dw sprbuf_handler, CODE_START
-  dw raster_handler, CODE_START
-  dw sound_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw coprocessorerror_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw vbl_handler, CODE_START
-  dw sprbuf_handler, CODE_START
-  dw raster_handler, CODE_START
-  dw sound_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
-  dw def_handler, CODE_START
+%include 'macros.asm'
+%include 'header.asm'
+%include 'objects.asm'
+%include 'draw_objects.asm'
+%include 'palette_code.asm'
+%include 'data.asm'
+%include 'sprite_chr_map.asm'
 
 ;======================================================================
-;Section Code
+;======================================================================
+section code
+;======================================================================
 ;======================================================================
 
-section code vstart=0 align=16
-CODE_START	equ (section.code.start >> 4)
-
-def_handler:
-  iret
-
-diverr_handler:
-  iret
-
-brk_handler:
-  iret
-
-nmi_handler:
-  iret
-
-int3_handler:
-  iret
-
-into_handler:
-  iret
-
-bound_handler:
-  iret
-
-undefinst_handler:
-  iret
-
-nocoprocessor_handler:
-  iret
-
-vbl_handler:
-  iret
-
-sprbuf_handler:
-  iret
-
-raster_handler:
-  iret
-
-sound_handler:
-  iret
-
-coprocessorerror_handler:
-  iret
-
-;======================================================================
-
-start:
-;Set Stack Location
-  mov sp, BSS_START
-  mov ss, sp
-  xor sp, sp
+main:
+  startup
+  call initialize_dynamic_palette_table
+  call initialize_objects
+  sti	;Enable Interupts
   
-;Set Up Interrupt Controller (This is exactly what Gunforce II writes)
-  mov al, 0x17
-  out 0x40, al
-  mov al, 0x20
-  out 0x42, al
-  mov al, 0x0F
-  out 0x42, al
-  mov al, 0x08
-  out 0x42, al
-
-;Enable Sprites
-  mov ax, VIDEO_HARDWARE_RAM_START
-  mov ds, ax
-  mov word [spriteRam + 0x100], 0x0100
-  mov word [spriteRam + 0x102], 0x0001
-  mov word [spriteRam + 0x104], 0x0000
-  mov word [spriteRam + 0x106], 0x0100
-  xor ax, ax
-  mov word [spriteControlRam + 0], ax	;sets up DMA
-  mov word [spriteControlRam + 4], ax	;sets up DMA
-  mov word [spriteControlRam + 8], ax	;DMA spriteRam
-
-;Set Up BGs
+  
+  
   mov al, 0x00
   out BG1CONTROL, al
   mov al, 0x11
@@ -352,229 +29,345 @@ start:
   mov al, 0x12
   out BG3CONTROL, al
   
-  mov ax, 0x0000
-  out BG1X, ax
-  mov ax, 0x0000
-  out BG1Y, ax
-
-;Write Tile
-  mov ax, VRAM_START
-  mov ds, ax
-  mov word [0x0000], 0x0001
-
-;Upload Palette
-  mov dx, WORKRAM_START
-  mov ds, dx
-  mov word [palettesRequested], 2
-  mov word [paletteRequestTable + PALETTE_SOURCE], PALETTE1
-  mov word [paletteRequestTable + PALETTE_DESTINATION], 0x0000
-  mov word [paletteRequestTable + PALETTE_SOURCE + 4], PALETTE1
-  mov word [paletteRequestTable + PALETTE_DESTINATION + 4], 0x0040
-  call upload_palette
-  sti				;Enable Interupts
+  mov word [paletteUseageTable], UPDATE
+  mov word [paletteLowWordTable], palette1
+  mov word [paletteHighWordTable], DATA
   
-;Horrible demo for demonstrating that interrupts now work (scrolls BG1)
+  mov si, Palette2
+  call allocate_palette
+  mov si, Palette3
+  call allocate_palette
+  mov si, Palette4
+  call allocate_palette
+  
+  printstring	DATA, Cam,						(ORIGIN_X), (ORIGIN_Y + 240-8)
+  
+  printstring	DATA, X,						(ORIGIN_X + 3*8), (ORIGIN_Y + 240-8)
+  printhex		WORKRAM, cameraXPosition, 2,	(ORIGIN_X + 5*8), (ORIGIN_Y + 240-8)	
+  printstring	DATA, Y,						(ORIGIN_X + 3*8), (ORIGIN_Y + 240-16)						
+  printhex		WORKRAM, cameraYPosition, 2,	(ORIGIN_X + 5*8), (ORIGIN_Y + 240-16)
+  
+  printstring	DATA, Hello_World,				(ORIGIN_X + 320/2 - 40), (ORIGIN_Y + 240/2)
+  
+  mov ax, empty_object
+  xor si, si
+  call find_object_forwards
+  mov word [object+identity + si], private_object
+  mov word [object+metaspriteType + si], COMPLEX
+  mov word [object+metaspriteData+0 + si], metasprite1
+  mov word [object+xPosition+1 + si], ORIGIN_X
+  mov word [object+yPosition+1 + si], ORIGIN_Y
+  mov [debug+0], si
+  
+  mov word [testBuffer+0],  'A'-32
+  mov word [testBuffer+4],  'B'-32
+  mov word [testBuffer+8],  'C'-32
+  mov word [testBuffer+12], 'D'-32
+  mov word [testBuffer+16], 'E'-32
+  mov word [testBuffer+20], 'F'-32
+  mov word [testBuffer+24], 'G'-32
+  mov word [testBuffer+28], 'H'-32
+  mov word [tileUpload+uploadDimensions], 0x0204
+  mov word [tileUpload+rowOffset], 0
+  mov word [tileUpload+vramAddress], 0
+  mov word [tileUpload+tileDataAddress+0], testBuffer
+  mov word [tileUpload+tileDataAddress+2], WORKRAM
+  add word [tileUploadOffset], tileUploadStruct_size
+  
+  
+  
 infinite_loop:
-  mov dx, WORKRAM_START
-  mov ds, dx
+  mov ax, [controller1]
+  mov dx, [controller1Press]
+  mov bx, [debug+0]
   
-  mov ax, [bg1XPosition]
-  out BG1X, ax
-  mov ax, [bg1XPosition]
-  out BG1X, ax
-  mov ax, [bg1YPosition]
-  out BG1Y, ax
-  mov ax, [bg1YPosition]
-  out BG1Y, ax
   
-  inc word [bg1XPosition]
-  inc word [bg1YPosition]
-  inc word [bg1YPosition]
   
+  test ax, UP_INPUT
+  jz .up_done
+  inc word [cameraYPosition]
+  .up_done:
+  
+  test ax, DOWN_INPUT
+  jz .down_done
+  dec word [cameraYPosition]
+  .down_done:
+  
+  test ax, LEFT_INPUT
+  jz .left_done
+  dec word [cameraXPosition]
+  .left_done:
+  
+  test ax, RIGHT_INPUT
+  jz .right_done
+  inc word [cameraXPosition]
+  .right_done:
+  
+  
+  
+  test dx, BUTTON_1
+  jz .button1_done
+  xor word [object+attributes+2 + bx], REFLECT_X
+  .button1_done:
+  
+  test dx, BUTTON_2
+  jz .button2_done
+  xor word [object+attributes+2 + bx], REFLECT_Y
+  .button2_done:
+  
+  
+  
+  call read_objects
+  call draw_objects
   hlt
   jmp infinite_loop
-
-  ;mov dx, WORKRAM_START
-  ;mov ds, dx
-  ;in  ax, P1INPUT
-  ;and ax, byte RIGHT_INPUT
-  ;jnz check_left
-  ;inc word [bg1XPosition]
-  ;mov ax, [bg1XPosition]
-  ;out BG1X, ax
-
-;check_left:
-  ;in  ax, P1INPUT
-  ;and ax, byte LEFT_INPUT
-  ;jnz check_down
-  ;dec word [bg1XPosition]
-  ;mov ax, [bg1XPosition]
-  ;out BG1X, ax
-
-;check_down:
-  ;in  ax, P1INPUT
-  ;and ax, byte DOWN_INPUT
-  ;jnz check_up
-  ;inc word [bg1YPosition]
-  ;mov ax, [bg1YPosition]
-  ;out BG1Y, ax
-
-;check_up:
-  ;in  ax, P1INPUT
-  ;and ax, byte UP_INPUT
-  ;jnz done
-  ;dec word [bg1YPosition]
-  ;mov ax, [bg1YPosition]
-  ;out BG1Y, ax
-
+  
 ;======================================================================
-;Modifies: ax, bx, cx, dx, si, di, ds, es
+;======================================================================
+;Interrupt Handlers
+  
+diverr_handler:
+  iret
+  
+brk_handler:
+  iret
+  
+nmi_handler:
+  iret
+  
+int3_handler:
+  iret
+  
+into_handler:
+  iret
+  
+bound_handler:
+  iret
+  
+undefinst_handler:
+  iret
+  
+nococpu_handler:
+  iret
+  
+sprbuf_handler:
+  iret
+  
+raster_handler:
+  iret
+  
+sound_handler:
+  iret
+  
+cocpuerror_handler:
+  iret
+  
+vblank_handler:
+  iret
 
-upload_palette:
-  mov dx, WORKRAM_START
-  mov ds, dx
-  mov ax, [palettesRequested]
-  cmp ax, 0
-  jz upload_palette_done
+def_handler:
+  pushall
+  mov ds, ax, WORKRAM
+  call update_controllers
+  call update_bg_scroll
+  call upload_bg_tiles
+  call upload_sprites
+  call upload_palettes
+  popall
+  iret
   
-  mov word [palettesRequested], 0
-  mov cx, VIDEO_HARDWARE_RAM_START + (paletteRam >> 4)
-  mov es, cx
-  mov bx, paletteRequestTable
-  jmp upload_palette_first_loop
+;======================================================================
+;======================================================================
+;Expects:
+;  cx = number of bytes for the hex value
+;  si = source address low word
+;  di = destination address low word
+;  ds = source address high word
+;  es = destination address high word
+;Destroys:
+;  ax, cx
+;  si, di
+
+hex_to_string:
+  cmp cl, 0
+  jne .continue
+  ret
+  
+.continue:  
+  add si, cx
+  dec si
+  
+.nibble1
+  std					;set direction to backward
+  lodsb					;get the byte to print
+  cld					;set direction to forward
+  mov ah, al			;make a copy of the byte
+  rol al, 4				;the top nibble is now at the bottom
+  
+  and al, 0x0F
+  cmp al, 0x0A			;check if the nibble is A through F
+  jae .nibble_1_AF
+  
+  add al, 48
+  jmp .nibble_1_next
+  
+.nibble_1_AF:
+  add al, 55
+  
+.nibble_1_next:
+  stosb
   
   
   
-upload_palette_loop:
-  mov ds, dx		;dx is WORKRAM_START
-  add bx, word PALETTE_REQUEST_SLOT_SIZE
+.nibble_0:
+  mov al, ah
+  and al, 0x0F
+  cmp al, 0x0A			;check if the nibble is A through F
+  jae .nibble_0_AF
   
-upload_palette_first_loop:
-  mov di, [bx + PALETTE_DESTINATION]
-  mov ds, [bx + PALETTE_SOURCE]			;WARNING: must come after loading PALETTE_DESTINATION
+  add al, 48
+  jmp .nibble_0_next
   
-  mov si, 0
-  mov cx, 16
-  cld
-  rep movsw
+.nibble_0_AF:
+  add al, 55
   
-  dec ax
-  jnz upload_palette_loop
+.nibble_0_next:
+  stosb
+  dec cl
+  jnz .nibble1
   
-upload_palette_done:
+  xor al, al
+  stosb					;store the terminating character at the end
   ret
 
 ;======================================================================
-;Color Palettes
 ;======================================================================
+;Expects:
+;  ds = WORKRAM
+;Destroys:
+;  ax, dx
 
-section palette1 vstart=0 align=16
-PALETTE1	equ (section.palette1.start >> 4)
-incbin "palettes\palette1.bin"
+upload_sprites:
+  mov word ax, [spritesRequested]
+  mov ds, dx, VIDEO_HARDWARE_RAM
+  
+  cmp ah, 1							;see if all 256 sprites are used
+  je .all_sprites_used
+  
+  neg al							;ax is now effectively 256 - spritesRequested
+  mov word [spriteControl + 0], ax
+  mov word [spriteControl + 4], 8	;8, so the number of sprites defined by spriteControl are uploaded
+  mov word [spriteControl + 8], ax	;DMA spriteRam
+  mov ds, ax, WORKRAM
+  ret
+
+.all_sprites_used:
+  mov word [spriteControl + 4], 0	;not 8, so all sprites are uploaded
+  mov word [spriteControl + 8], ax	;DMA spriteRam
+  mov ds, ax, WORKRAM
+  ret
 
 ;======================================================================
-;Section Reset
 ;======================================================================
+;Expects:
+;  ds = WORKRAM
+;Destroys:
+;  ax
 
-section reset start=0x7FFF0 vstart=0
-RESET_START	equ (section.reset.start >> 4)
-
-  cli
-  jmp CODE_START:start
+update_bg_scroll:
+  mov ax, [bg1XPosition]
+  out BG1X, ax
+  mov ax, [bg1YPosition]
+  out BG1Y, ax
+  mov ax, [bg2XPosition]
+  out BG2X, ax
+  mov ax, [bg2YPosition]
+  out BG2Y, ax
+  mov ax, [bg3XPosition]
+  out BG3X, ax
+  mov ax, [bg3YPosition]
+  out BG3Y, ax
+  ret
   
-  times 16-($-$$) db 0
-
 ;======================================================================
-;Section RAM
 ;======================================================================
+;Expects:
+;  ds = WORKRAM
+;Destroys:
+;  ax, bx, cx, dx
+;  si, di
+;  es
 
-segment bss start=0xE0000 vstart=0 nobits align=16
-BSS_START	equ (section.bss.start >> 4)
+upload_bg_tiles:
+  cmp word [tileUploadOffset], 0
+  je .done
+  xor bx, bx
+  mov es, dx, VRAM
+  cld			;set transfer address to increment
+  
+  
+  
+.read_table_loop:
+  mov ax, [tileUpload+uploadDimensions + bx]	;low byte is width, high byte is height
+  mov dx, [tileUpload+rowOffset + bx]
+  mov di, [tileUpload+vramAddress + bx]		
+  mov si, [tileUpload+tileDataAddress+0 + bx]
+  mov ds, cx, [tileUpload+tileDataAddress+2 + bx]
+  rol al, 1		;because each tile is 2 words
+  xor ch, ch	;we'll only ever be concerned with the bottom byte of cx
+    
+  .upload_loop
+	mov cl, al
+	rep movsw
+	
+	mov cl, al
+	rol cx, 1	;convert the offset in words to bytes
+	sub di, cx	;go back to the start position for the row
+	add di, 256	;go to the next row (assumes 512*512 background)
+	add si, dx	;add the offset to the source address
+	dec ah		;reduce the height (loop control)
+	jnz .upload_loop
+  
+  mov ds, dx, WORKRAM
+  add bx, tileUploadStruct_size
+  cmp bx, [tileUploadOffset]
+  jl .read_table_loop
+  
+  
+  
+  mov word [tileUploadOffset], 0
+.done:
+  ret
+  
+;======================================================================
+;======================================================================
+;Expects:
+;  ds = WORKRAM
+;Destroys:
+;  ax, dx
 
-;Define Variables:
-  bg1XPosition			resb 2
-  bg1YPosition			resb 2
-  palettesRequested		resb 2
+update_controllers:
+  mov dx, [controller1]
   
-  PALETTE_REQUEST_SLOT_SIZE		equ 4
-  PALETTE_SOURCE				equ 0
-  PALETTE_DESTINATION			equ 2
+  mov ah, 0
+  in al, P1INPUT
+  not al
+  mov [controller1], ax
   
-  PALETTE_REQUEST_TABLE_SIZE	equ (PALETTE_REQUEST_SLOT_SIZE * 128)
-  paletteRequestTable			resb PALETTE_REQUEST_TABLE_SIZE
+  xor dx, ax 					;detect what was changed
+  and dx, ax					;this is done so releases aren't counted as presses 
+  mov [controller1Press], dx
   
-;Define	Values:
-  SCREEN_WivtH 		equ 320
-  SCREEN_HEIGHT 	equ 240
-
-  RIGHT_INPUT		equ 0x01
-  LEFT_INPUT		equ 0x02
-  DOWN_INPUT		equ 0x04
-  UP_INPUT			equ 0x08
-  BUTTON_1			equ 0x20
-  BUTTON_2			equ 0x40
-  BUTTON_3			equ 0x80
   
-  P1_BUTTON_4		equ 0x20
-  P1_BUTTON_5		equ 0x40
-  P1_BUTTON_6		equ 0x80
   
-  P2_BUTTON_1		equ 0x20
-  P2_BUTTON_2		equ 0x40
-  P2_BUTTON_3		equ 0x80
-
-  VRAM_START		equ 0xD000
-	bg1Rowscroll	equ 0xF400
-	bg2Rowscroll	equ 0xF800
-	bg3Rowscroll	equ 0xFC00
+  mov dx, [controller2]
   
-  WORKRAM_START		equ 0xE000
+  mov ah, 0
+  in al, P2INPUT
+  not al
+  mov [controller2], ax
   
-  VIDEO_HARDWARE_RAM_START	equ 0xF000
-	spriteRam				equ 0x8000
-	;       FEDC BA98 7654 3210
-	;Word 0 LLLW WHHy yyyy yyyy
-	;Word 1 tttt tttt tttt tttt
-	;Word 2        YX plll llll
-	;Word 3         x xxxx xxxx
-	;
-	;		L	- layer
-	;		W,H	- wivth, height (0,1,2,3 = 1,2,4,8 16x16 tiles)
-	;		X,Y	- reflect X,Y
-	;		x,y	- x,y coordinate
-	;		t	- tile
-	;		p	- priority
-	;		l	- color
-	paletteRam			equ 0x8800
-	spriteControlRam	equ 0x9000
-	;Offset 0: sprite list size	
-	;Offset 2: sprite control
-	;	When 0x08:				DMA (256 - sprite list size) sprites as long as sprite list size != 0 (otherwise DMA 0 sprites)
-	;	When anything but 0x08:	DMA all 256 sprites, regardless of sprite list size.
-	;Offset 4: sprite dma
-	;	Write any value here to DMA spriteRam.
-
-;Define Read Ports
-  P1INPUT 		equ 0x00
-  P2INPUT 		equ 0x01
-  COINS			equ 0x02
-  DIP3			equ 0x03
-  DIP2			equ 0x04
-  DIP1			equ 0x05
-  P3INPUT		equ 0x06
-  P4INPUT		equ 0x07
-
-;Define Write Ports
-  BG1Y			equ 0x80
-  BG1X			equ 0x84
-  BG2Y			equ 0x88
-  BG2X			equ 0x8C
-  BG3Y			equ 0x90
-  BG3X			equ 0x94
-  BG1CONTROL	equ 0x98
-  BG2CONTROL	equ 0x9A
-  BG3CONTROL	equ 0x9C
-  ;Bit  0x40:		1 = Rowscroll enable, 0 = disable
-  ;Bit  0x10:		0 = Playfield enable, 1 = disable
-  ;Bit  0x04:		0 = 512 x 512 playfield, 1 = 1024 x 512 playfield
-  ;Bits 0x03:		Playfield location in VRAM (0, 0x4000, 0x8000, 0xc000)
+  xor dx, ax 					;detect what was changed
+  and dx, ax					;this is done so releases aren't counted as presses 
+  mov [controller2Press], dx
+  ret
